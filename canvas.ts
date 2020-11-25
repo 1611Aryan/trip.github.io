@@ -31,6 +31,11 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 const c = canvas.getContext('2d');
 
+addEventListener('resize', () => {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+})
+
 const Particle = function (x: number, y: number, radius: number, color: string) {
     this.x = x;
     this.y = y;
@@ -79,7 +84,6 @@ for (let i = 0; i < 200; i++) {
     particles.push(particle);
 }
 
-console.log(particles);
 const animate = () => {
     requestAnimationFrame(animate);
     c.fillStyle = "rgba(0,0,0,0.05)";

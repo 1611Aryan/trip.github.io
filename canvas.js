@@ -27,6 +27,10 @@ const canvas = document.querySelector('canvas');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 const c = canvas.getContext('2d');
+addEventListener('resize', () => {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+});
 const Particle = function (x, y, radius, color) {
     this.x = x;
     this.y = y;
@@ -70,7 +74,6 @@ for (let i = 0; i < 200; i++) {
     const particle = new Particle(x, y, radius, color);
     particles.push(particle);
 }
-console.log(particles);
 const animate = () => {
     requestAnimationFrame(animate);
     c.fillStyle = "rgba(0,0,0,0.05)";
